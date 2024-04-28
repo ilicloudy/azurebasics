@@ -5,15 +5,15 @@ a VNET with two subnets
 Virtual Machine- Ubuntu provisioned in Server Subnet
 Azure Key Vault where 2 secrets are created the username and pwd of Virtual Machine
 Thus in the creation of VM username and pwd are going to be retrieved from Azure Key Vault.
-Azure Key Vault Policy created as well for an Azure Service Principal as an example how access can be granted to Azure Key Vault Secrets.
-NSG for Azure Bastion subnet is provisioned according to official documentation of Azure.
-Azure Key Vault components are implemented as modules in the code.
-terraform.tfvars are where the initialization of almost all variables except the sensitive ones.
-Sensitive variables are set as environmental variables for security.
-at prompt in windows you should set environmental variables 
-$env:TF_VAR_pwd="xxxxxxxxxxxxxxx"
-$env:TF_VAR_useradmin="xxxxxxxxxxxxx"
-terraform apply -var pwd=$env:TF_VAR_pwd -var username=$env:TF_VAR_username 
+
+- Example of Azure Key Vault Policy for an Azure Service Principal way of access to Azure Key Vault Secrets.
+- NSG for Azure Bastion subnet is provisioned according to official documentation of Azure.
+- Azure Key Vault components are implemented as modules in the code.
+- Sensitive variables are set as environmental variables for security.
+Tip: At prompt in windows you should set environmental variables 
+    $env:TF_VAR_pwd="xxxxxxxxxxxxxxx"
+    $env:TF_VAR_useradmin="xxxxxxxxxxxxx"
+    terraform apply -var pwd=$env:TF_VAR_pwd -var username=$env:TF_VAR_username 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

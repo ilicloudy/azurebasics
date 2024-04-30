@@ -1,19 +1,33 @@
+## Azure Basic Resources Deployment with Terraform
+
+## Azure scenario
 This code is creating the following resources:
 a VNET with two subnets 
 1. Server Subnet
 2. Azure Bastion
 Virtual Machine- Ubuntu provisioned in Server Subnet
-Azure Key Vault where 2 secrets are created the username and pwd of Virtual Machine
-Thus in the creation of VM username and pwd are going to be retrieved from Azure Key Vault.
+Username and Password of Virtual Machine are stored in Azure Key Vault.
+
+--Note--: NSG for Azure Bastion subnet is provisioned according to official documentation of Azure.
+
+***
+
+### Terraform related info 
 
 - Example of Azure Key Vault Policy for an Azure Service Principal way of access to Azure Key Vault Secrets.
-- NSG for Azure Bastion subnet is provisioned according to official documentation of Azure.
 - Azure Key Vault components are implemented as modules in the code.
 - Sensitive variables are set as environmental variables for security.
-Tip: At prompt in windows you should set environmental variables 
+
+**Tip**: At prompt in windows you should set environmental variables:
+'''
     $env:TF_VAR_pwd="xxxxxxxxxxxxxxx"
     $env:TF_VAR_useradmin="xxxxxxxxxxxxx"
-    terraform apply -var pwd=$env:TF_VAR_pwd -var username=$env:TF_VAR_username 
+'''
+In Linux
+    export  TF_VAR_pwd="xxxxxxxxxxxxxxx"
+    $env:TF_VAR_useradmin="xxxxxxxxxxxxx"
+
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

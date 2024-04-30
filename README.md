@@ -8,7 +8,7 @@ a VNET with two subnets
 Virtual Machine- Ubuntu provisioned in Server Subnet
 Username and Password of Virtual Machine are stored in Azure Key Vault.
 
---Note--: NSG for Azure Bastion subnet is provisioned according to official documentation of Azure.
+*Note*: NSG for Azure Bastion subnet is provisioned according to official documentation of Azure.
 
 ***
 

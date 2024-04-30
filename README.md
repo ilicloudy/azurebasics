@@ -18,15 +18,18 @@ Username and Password of Virtual Machine are stored in Azure Key Vault.
 - Azure Key Vault components are implemented as modules in the code.
 - Sensitive variables are set as environmental variables for security.
 
-**Tip**: At prompt in windows you should set environmental variables:
-'''
-    $env:TF_VAR_pwd="xxxxxxxxxxxxxxx"
-    $env:TF_VAR_useradmin="xxxxxxxxxxxxx"
-'''
-In Linux
-    export  TF_VAR_pwd="xxxxxxxxxxxxxxx"
-    $env:TF_VAR_useradmin="xxxxxxxxxxxxx"
+*Tip*: At prompt in windows you should set environmental variables:
 
+```terraform
+'''$env:TF_VAR_pwd="xxxxxxxxxxxxxxx"
+'''$env:TF_VAR_useradmin="xxxxxxxxxxxxx"
+```
+
+In Linux
+```terraform
+'''export  TF_VAR_pwd="xxxxxxxxxxxxxxx"
+'''export TF_VAR_useradmin="xxxxxxxxxxxxx"
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

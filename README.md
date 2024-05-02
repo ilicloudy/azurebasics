@@ -36,14 +36,15 @@ export TF_VAR_useradmin="xxxxxxxxxxxxx"
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~>2.48.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.100.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.48.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.100.0 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~>2.48.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.100.0 |
 
 ## Modules
 
@@ -51,6 +52,7 @@ export TF_VAR_useradmin="xxxxxxxxxxxxx"
 |------|--------|---------|
 | <a name="module_azkeyvaultpolicy"></a> [azkeyvaultpolicy](#module\_azkeyvaultpolicy) | ./modules/kvpolicy | n/a |
 | <a name="module_azpassword"></a> [azpassword](#module\_azpassword) | ./modules/kvsecret | n/a |
+| <a name="module_azrbacpolicy"></a> [azrbacpolicy](#module\_azrbacpolicy) | ./modules/rbacpolicy | n/a |
 | <a name="module_azuserkey"></a> [azuserkey](#module\_azuserkey) | ./modules/kvsecret | n/a |
 | <a name="module_myazkeyvault"></a> [myazkeyvault](#module\_myazkeyvault) | ./modules/keyvault | n/a |
 
@@ -58,10 +60,8 @@ export TF_VAR_useradmin="xxxxxxxxxxxxx"
 
 | Name | Type |
 |------|------|
-| [azurerm_bastion_host.azbastionhost](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host) | resource |
 | [azurerm_network_interface.servernic](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) | resource |
 | [azurerm_network_security_group.azb-nsg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group) | resource |
-| [azurerm_public_ip.bastionpublicip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
 | [azurerm_resource_group.rgazkeyvault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_resource_group.rgbastion](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_subnet.azbastionsubnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |

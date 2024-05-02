@@ -12,7 +12,6 @@ variable "secretpremissionspolicy" {
   default = ["Get"]
 }
 
-#following variables are defined in root module
 variable "rgvault" {}
 variable "keyvaultname" {}
 variable "tenant_id" {}

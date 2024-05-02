@@ -58,13 +58,13 @@ resource "azurerm_subnet" "serverssubnet" {
 #3. resource group name
 #4. allocation method Static
 #5. sku Standard
-resource "azurerm_public_ip" "bastionpublicip" {
+/*resource "azurerm_public_ip" "bastionpublicip" {
   name                = "BastionIP"
   location            = azurerm_resource_group.rgbastion.location
   resource_group_name = azurerm_resource_group.rgbastion.name
   allocation_method   = "Static"
   sku                 = "Standard"
-}
+}*/
 
 #create Azure Bastion
 #requires the following parameters 
@@ -73,7 +73,7 @@ resource "azurerm_public_ip" "bastionpublicip" {
 #3. resource group name
 #4. sku Basic
 #5. ip configuration=> public_ip and subnet_id
-resource "azurerm_bastion_host" "azbastionhost" {
+/*resource "azurerm_bastion_host" "azbastionhost" {
   name                = "AzBastion"
   location            = azurerm_resource_group.rgbastion.location
   resource_group_name = azurerm_resource_group.rgbastion.name
@@ -85,7 +85,7 @@ resource "azurerm_bastion_host" "azbastionhost" {
   }
 
 }
-
+*/
 
 #create Azure Key Vault
 #Key Vault Name should be globally unique
@@ -96,6 +96,8 @@ module "myazkeyvault" {
   keyvaultname = var.keyvaultname
   tenant_id    = var.tenant_id
   object_id    = var.object_id
+  
+  #if RBAC Policy is used comment keypermissionspolicy block and secretpremissionspolicy block
   keypermissionspolicy = [
     "Create",
     "Get",
@@ -130,6 +132,15 @@ module "azkeyvaultpolicy" {
   object_id            = data.azuread_service_principal.myapp.object_id
   keypermissionspolicy = ["Get", "List", "Encrypt", "Decrypt"]
 }
+
+#if RBAC Policy used to access secrets stored in Azure Key Vault
+#uncomment the following block of code 
+ module "azrbacpolicy" {
+   source               = "./modules/rbacpolicy"
+   keyvaultid           = module.myazkeyvault.keyvaultid
+   object_id = data.azuread_service_principal.myapp.object_id
+}
+
 
 #create Azure Key Vault Secret for username of VM-server to be created
 module "azuserkey" {

@@ -5,3 +5,4 @@ resource "azurerm_key_vault_access_policy" "kvpolicy" {
   key_permissions = var.keypermissionspolicy
   secret_permissions = var.secretpremissionspolicy
 }
+

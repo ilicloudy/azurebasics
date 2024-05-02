@@ -58,13 +58,13 @@ resource "azurerm_subnet" "serverssubnet" {
 #3. resource group name
 #4. allocation method Static
 #5. sku Standard
-/*resource "azurerm_public_ip" "bastionpublicip" {
+resource "azurerm_public_ip" "bastionpublicip" {
   name                = "BastionIP"
   location            = azurerm_resource_group.rgbastion.location
   resource_group_name = azurerm_resource_group.rgbastion.name
   allocation_method   = "Static"
   sku                 = "Standard"
-}*/
+}
 
 #create Azure Bastion
 #requires the following parameters 
@@ -73,7 +73,7 @@ resource "azurerm_subnet" "serverssubnet" {
 #3. resource group name
 #4. sku Basic
 #5. ip configuration=> public_ip and subnet_id
-/*resource "azurerm_bastion_host" "azbastionhost" {
+resource "azurerm_bastion_host" "azbastionhost" {
   name                = "AzBastion"
   location            = azurerm_resource_group.rgbastion.location
   resource_group_name = azurerm_resource_group.rgbastion.name
@@ -85,7 +85,7 @@ resource "azurerm_subnet" "serverssubnet" {
   }
 
 }
-*/
+
 
 #create Azure Key Vault
 #Key Vault Name should be globally unique
